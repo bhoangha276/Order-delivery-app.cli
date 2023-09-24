@@ -7,15 +7,23 @@
 
         <div class="row">
             <div class="about-content">
-                <img src="../assets/images/taco-chefcartoon.png" alt="">
+                <img src="../assets/images/taco-chefcartoon.png" alt="" />
                 <div class="about-content-text">
-                    <p>Our restaurant QFood was founded by Quang (a 5 Michelin stars chef) in 2002 in Vietnam. After
-                        that, thanks to the support of our customers, our brand has been popularized globally in markets
-                        such as Australia, USA, Canada, UK, France, Germany, Belgium, Russia, China, Japan,
-                        Singapore, ... Mexican-style meals, the products that we deliver to customers are always the
-                        best quality products.</p>
-                    <p>Customers can eat at the restaurant to experience the Mexican atmosphere or can order food to be
-                        delivered to their homes.</p>
+                    <p>
+                        Our restaurant HFood was founded by HaJun (a 5 Michelin
+                        stars chef) in 2002 in Vietnam. After that, thanks to
+                        the support of our customers, our brand has been
+                        popularized globally in markets such as Australia, USA,
+                        Canada, UK, France, Germany, Belgium, Russia, China,
+                        Japan, Singapore, ... Mexican-style meals, the products
+                        that we deliver to customers are always the best quality
+                        products.
+                    </p>
+                    <p>
+                        Customers can eat at the restaurant to experience the
+                        Mexican atmosphere or can order food to be delivered to
+                        their homes.
+                    </p>
                 </div>
             </div>
         </div>
@@ -28,16 +36,16 @@
 
         <div class="row gallery">
             <div class="wrapper">
-                <img src="../assets/images/taco/taco-2.jpg" alt="">
-                <img src="../assets/images/taco/taco-4.jpg" alt="">
-                <img src="../assets/images/burrito/burrito-6.jpg" alt="">
-                <img src="../assets/images/burrito/burrito-2.jpg" alt="">
-                <img src="../assets/images/burrito/burrito-3.jpg" alt="">
-                <img src="../assets/images/nachos/nachos-1.jpg" alt="">
-                <img src="../assets/images/nachos/nachos-2.jpg" alt="">
-                <img src="../assets/images/nachos/nachos-3.jpg" alt="">
-                <img src="../assets/images/dessert/dessert-2.jpg" alt="">
-                <img src="../assets/images/dessert/dessert-6.jpg" alt="">
+                <img src="../assets/images/taco/taco-2.jpg" alt="" />
+                <img src="../assets/images/taco/taco-4.jpg" alt="" />
+                <img src="../assets/images/burrito/burrito-6.jpg" alt="" />
+                <img src="../assets/images/burrito/burrito-2.jpg" alt="" />
+                <img src="../assets/images/burrito/burrito-3.jpg" alt="" />
+                <img src="../assets/images/nachos/nachos-1.jpg" alt="" />
+                <img src="../assets/images/nachos/nachos-2.jpg" alt="" />
+                <img src="../assets/images/nachos/nachos-3.jpg" alt="" />
+                <img src="../assets/images/dessert/dessert-2.jpg" alt="" />
+                <img src="../assets/images/dessert/dessert-6.jpg" alt="" />
             </div>
         </div>
     </section>
@@ -59,7 +67,6 @@ export default {
 .about-section .about-content {
     display: flex;
     width: 100%;
-
 }
 
 .about-section .about-content img {
@@ -80,11 +87,10 @@ export default {
 }
 
 .about-section .about-article h3 {
-    font-family: 'Satisfy', cursive;
+    font-family: "Satisfy", cursive;
     font-size: 32px;
     color: white;
 }
-
 
 .about-section .gallery {
     overflow: hidden;
@@ -112,7 +118,7 @@ export default {
     margin-bottom: -52%;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     transform: scale(1);
-    transition: all .25s;
+    transition: all 0.25s;
 }
 
 .about-section .gallery .wrapper img:nth-child(7n + 1) {
@@ -153,7 +159,6 @@ export default {
 
     .about-section .gallery .wrapper img {
         max-width: 100%;
-
     }
 
     .about-section .gallery .wrapper {
@@ -163,6 +168,5 @@ export default {
     .about-section .gallery .wrapper img:hover {
         transform: scale(2);
     }
-
 }
 </style>
