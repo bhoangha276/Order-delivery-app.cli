@@ -12,7 +12,7 @@ ul {
 
 li a {
   width: 17rem;
-  height: 22.5rem;
+  height: 23rem;
   margin: 0.5rem;
 
   display: flex;
@@ -81,7 +81,7 @@ li a img {
   font-size: 0.8rem;
   color: whitesmoke;
   margin-right: 0.3rem;
-  padding: 0 0.5rem;
+  padding: 0 0.5rem 0.1rem;
   margin-top: 0.2rem;
 }
 
@@ -96,7 +96,7 @@ li a img {
   bottom: 0;
   left: 1.1rem;
   background: white;
-  padding: 0.3rem 100% 0 0;
+  padding: 0.1rem 0.5rem 0 0;
   color: #414141;
   margin-top: 0.7rem;
   font-size: 1.1rem;
