@@ -1,0 +1,24 @@
+div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+div a {
+  background-color: lightcoral;
+  padding: 0.3rem 1rem;
+  margin: 0.2rem 0.15rem;
+  border-radius: 10rem;
+  font-weight: 600;
+  color: whitesmoke;
+
+  transition-delay: 0s;
+  transition-duration: 0.6s;
+}
+
+div a:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+  filter: brightness(105%);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}

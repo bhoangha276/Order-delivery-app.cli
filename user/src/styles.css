@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@200;300;700&family=Roboto:wght@300;700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -12,7 +12,7 @@ html {
 
 html,
 button {
-  font-family: 'Raleway', 'Arial';
+  font-family: 'Roboto', 'Roboto Condensed', sans-serif;
 }
 
 body {

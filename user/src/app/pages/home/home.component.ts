@@ -14,9 +14,12 @@ export class HomeComponent implements OnInit {
   constructor(private api: FoodService, activatedRoute: ActivatedRoute) {
     activatedRoute.params.subscribe(params => {
       let searchTerm = params['searchTerm']
+      let searchTag = params['tag']
 
       if (searchTerm) {
         this.foods = this.api.getBySearchTerm(searchTerm)
+      } else if (searchTag) {
+        this.foods = this.api.getBySearchTag(searchTag)
       } else {
         this.foods = api.getAll()
       }
