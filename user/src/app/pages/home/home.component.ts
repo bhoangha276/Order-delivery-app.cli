@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
 import { FoodService } from 'src/app/services/food.service'
 import { Food } from 'src/app/shared/model/Food'
 
@@ -10,8 +11,16 @@ import { Food } from 'src/app/shared/model/Food'
 export class HomeComponent implements OnInit {
   foods: Food[] = []
 
-  constructor(private api: FoodService) {
-    this.foods = api.getAll()
+  constructor(private api: FoodService, activatedRoute: ActivatedRoute) {
+    activatedRoute.params.subscribe(params => {
+      let searchTerm = params['searchTerm']
+
+      if (searchTerm) {
+        this.foods = this.api.getBySearchTerm(searchTerm)
+      } else {
+        this.foods = api.getAll()
+      }
+    })
   }
 
   ngOnInit(): void {}
