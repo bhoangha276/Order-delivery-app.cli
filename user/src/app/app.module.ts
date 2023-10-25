@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { TagsComponent } from './components/tags/tags.component';
+import { FoodComponent } from './pages/food/food.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { TagsComponent } from './components/tags/tags.component';
     HeaderComponent,
     HomeComponent,
     SearchComponent,
-    TagsComponent
+    TagsComponent,
+    FoodComponent
   ],
   imports: [
     BrowserModule,

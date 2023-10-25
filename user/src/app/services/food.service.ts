@@ -28,4 +28,8 @@ export class FoodService {
   getAllTags(): Tag[] {
     return sample_tags
   }
+
+  getFoodById(foodId: string) {
+    return this.getAll().find(food => food.id == foodId) ?? new Food()
+  }
 }
