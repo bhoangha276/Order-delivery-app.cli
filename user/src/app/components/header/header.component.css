@@ -1,5 +1,8 @@
 header {
-  position: relative;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  top: 0;
   background: white;
   padding: 0;
   border-bottom: 2px solid #e72929;
@@ -13,17 +16,27 @@ nav a:hover {
   background: #e72929;
   color: white;
   cursor: pointer;
+  border-radius: 0.4rem;
 }
 
 .container {
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
 
 a.logo {
   font-weight: bold;
+  font-size: 1.5rem;
   padding: 1rem;
+
+  transition-delay: 0s;
+  transition-duration: 0.6s;
+}
+
+a.logo:hover {
+  filter: brightness(130%);
 }
 
 ul {
@@ -54,6 +67,7 @@ a span {
   z-index: 1;
   background: whitesmoke;
   display: none;
+  border-bottom: 0.4rem;
 }
 
 .menu-container:hover .menu {
