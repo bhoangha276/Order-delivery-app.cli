@@ -29,6 +29,6 @@ export class FoodComponent implements OnInit {
 
   addToCart() {
     this.cartServices.addToCard(this.food)
-    this.router.navigateByUrl('/cart')
+    this.router.navigateByUrl('')
   }
 }
