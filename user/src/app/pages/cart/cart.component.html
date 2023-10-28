@@ -1,6 +1,12 @@
 <div class="container">
   <app-title title="Cart Page" margin="1.5 0 0 2.5rem"></app-title>
-  <div class="cart-box">
+  <app-not-found
+    [visible]="!cart || !cart.items.length"
+    notFoundMessage="Cart Page Is Empty!"
+    resetLinkText="Back to Home">
+  </app-not-found>
+
+  <div *ngIf="cart && cart.items.length" class="cart-box">
     <ul>
       <li *ngFor="let cartItem of cart.items">
         <div>

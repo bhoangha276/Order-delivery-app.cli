@@ -1,4 +1,8 @@
 .container {
+  margin-top: 6rem;
+}
+
+.food-box {
   display: flex;
   justify-content: center;
   align-items: center;
