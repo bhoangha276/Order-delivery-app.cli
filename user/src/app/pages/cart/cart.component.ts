@@ -18,11 +18,11 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {}
 
   removeFromCart(cartItem: CartItem) {
-    this.cartService.removeFromCart(cartItem.food.id)
+    this.cartService.removeFromCart(cartItem.food._id)
   }
 
   changeQuantity(cartItem: CartItem, quantityInString: string) {
     const quantity = parseInt(quantityInString)
-    this.cartService.changeQuantity(cartItem.food.id, quantity)
+    this.cartService.changeQuantity(cartItem.food._id, quantity)
   }
 }
