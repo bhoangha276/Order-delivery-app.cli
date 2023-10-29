@@ -20,7 +20,9 @@ export class FoodComponent implements OnInit {
   ) {
     activatedRoute.params.subscribe(params => {
       if (params['id']) {
-        this.food = api.getFoodById(params['id'])
+        api.getFoodById(params['id']).subscribe(serverFood => {
+          this.food = serverFood
+        })
       }
     })
   }
