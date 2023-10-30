@@ -8,18 +8,18 @@
   align-items: center;
   flex-wrap: wrap;
   margin: 2rem;
-  margin-top: 6rem;
 }
 
 .container > * {
   min-width: 25rem;
-  max-width: 40rem;
+  max-width: 75rem;
 }
 
 img {
   border-radius: 2rem;
   flex: 1 0;
   object-fit: cover;
+  /* width: 50rem; */
   height: 25rem;
   margin: 1rem;
 
@@ -55,6 +55,10 @@ img:hover {
   font-weight: bold;
 }
 
+.name::first-letter {
+  text-transform: uppercase;
+}
+
 .favorite {
   color: #e72929;
   font-size: 2.5rem;
@@ -87,6 +91,10 @@ img:hover {
   color: lightcoral;
 }
 
+.origins span {
+  text-transform: capitalize;
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -102,6 +110,10 @@ img:hover {
 
   transition-delay: 0s;
   transition-duration: 0.6s;
+}
+
+.tags a::first-letter {
+  text-transform: uppercase;
 }
 
 .tags a:hover {

@@ -12,7 +12,7 @@
         <div>
           <img [src]="cartItem.food.imageUrl" [alt]="cartItem.food.name" />
         </div>
-        <div>
+        <div class="name">
           <a routerLink="/food/{{ cartItem.food._id }}">
             {{ cartItem.food.name }}
           </a>

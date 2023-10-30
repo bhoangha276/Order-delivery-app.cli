@@ -44,6 +44,10 @@ li div {
   padding: 1rem;
 }
 
+.name::first-letter {
+  text-transform: uppercase;
+}
+
 li div:not(:first-child) {
   flex-basis: 18%;
 }
