@@ -40,12 +40,14 @@ export class FoodService {
   }
 
   getBySearchTag(tag: string): Observable<Food[]> {
-    return tag === 'All'
-      ? this.httpClient.get<Food[]>(FOODS_URL).pipe(
-          map((response: any) => {
-            return response.data
-          }),
-        )
+    return tag === 'Tất cả'
+      ? this.httpClient
+          .get<Food[]>(`${FOODS_URL}?page=1&limit=8&sortDirection=1`)
+          .pipe(
+            map((response: any) => {
+              return response.data
+            }),
+          )
       : this.httpClient.get<Food[]>(`${FOODS_BY_TAG_URL}?tag=${tag}`).pipe(
           map((response: any) => {
             return response.data
