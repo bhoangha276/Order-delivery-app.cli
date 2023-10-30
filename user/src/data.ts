@@ -93,12 +93,12 @@ export const sample_foods: Food[] = [
 ]
 
 export const sample_tags: Tag[] = [
-  { name: 'All', count: 8 },
-  { name: 'FastFood', count: 4 },
+  { name: 'Tất cả', count: 8 },
+  { name: 'Ăn nhanh', count: 4 },
   { name: 'Pizza', count: 3 },
-  { name: 'Lunch', count: 3 },
-  { name: 'SlowFood', count: 2 },
+  { name: 'Ăn trưa', count: 3 },
+  { name: 'Ăn mặn', count: 2 },
   { name: 'Hamburger', count: 2 },
-  { name: 'Fry', count: 1 },
-  { name: 'Soup', count: 1 },
+  { name: 'Chiên rán', count: 1 },
+  { name: 'Súp', count: 1 },
 ]

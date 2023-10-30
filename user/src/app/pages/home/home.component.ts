@@ -29,7 +29,6 @@ export class HomeComponent implements OnInit {
 
       foodsObservable.subscribe(serverFoods => {
         this.foods = serverFoods
-        console.log(this.foods[0])
       })
     })
   }
