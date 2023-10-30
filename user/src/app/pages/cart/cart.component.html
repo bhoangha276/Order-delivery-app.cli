@@ -28,9 +28,7 @@
             <option>4</option>
           </select>
         </div>
-        <div>
-          {{ cartItem.price | currency }}
-        </div>
+        <div>{{ cartItem.price | currency : 'VND' : 'symbol' }}.000</div>
 
         <div>
           <button class="remove-button" (click)="removeFromCart(cartItem)">
@@ -43,7 +41,9 @@
     <div class="checkout">
       <div>
         <div class="foods-count">{{ cart.totalCount }}</div>
-        <div class="foods-price">{{ cart.totalPrice }}</div>
+        <div class="total-price">
+          {{ cart.totalPrice | currency : 'VND' : 'symbol' }}.000
+        </div>
       </div>
       <a routerLink="/checkout">Proceed to checkout</a>
     </div>
