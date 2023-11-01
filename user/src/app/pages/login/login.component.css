@@ -1,0 +1,86 @@
+.container {
+  height: 100vh;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(../../../assets/images/bg-login.jpg);
+}
+
+.login-box {
+  padding: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.details {
+  width: 25rem;
+  padding: 2rem 4rem;
+
+  border: 2px solid #e72929;
+  border-radius: 1rem;
+  background-color: #fff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input-container {
+  margin-bottom: 1rem;
+  height: 3rem;
+}
+
+.input-email input,
+.input-password input {
+  width: 100%;
+  margin-top: 0.5rem;
+
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #000000;
+
+  font-size: 1.2rem;
+
+  background-color: #fff;
+}
+
+.error-list {
+  font-size: 1rem;
+  color: #e72929;
+}
+
+.button {
+  margin: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button button {
+  width: 50%;
+
+  color: white;
+  background: #e72929;
+  border: none;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border-radius: 10rem;
+  outline: none;
+  opacity: 0.8;
+
+  transition-delay: 0s;
+  transition-duration: 0.6s;
+}
+
+.button button:hover {
+  cursor: pointer;
+  transform: scale(1);
+  filter: brightness(110%);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}

@@ -52,6 +52,10 @@ li a img {
   position: relative;
 }
 
+.name::first-letter {
+  text-transform: uppercase;
+}
+
 .favorite {
   position: absolute;
   top: 0.5rem;
@@ -83,6 +87,7 @@ li a img {
 .origins {
   flex: 9;
   height: 2.5rem;
+  text-transform: capitalize;
 
   overflow-y: scroll;
   -ms-overflow-style: none;
