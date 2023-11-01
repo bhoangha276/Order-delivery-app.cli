@@ -7,21 +7,18 @@
         <div class="input-container">
           <!-- input email -->
           <div class="input-email">
-            <label for="email">Email</label>
             <div>
-              <input
-                type="email"
-                placeholder="example@gmail.com"
-                formControlName="email" />
+              <input type="email" placeholder="Email" formControlName="email" />
             </div>
           </div>
           <!-- output email validation -->
           <div class="error-list" *ngIf="fc['email'].errors && isSubmited">
             <div *ngIf="fc['email'].errors['required']">
-              Should not be empty!!!
+              Should not be empty!
             </div>
             <div *ngIf="fc['email'].errors['email']">
-              Email is not correct !!!
+              Email is not correct !
+              
             </div>
           </div>
         </div>
@@ -29,18 +26,17 @@
         <div class="input-container">
           <!-- input password -->
           <div class="input-password">
-            <label for="password">Password</label>
             <div>
               <input
                 type="password"
-                placeholder="******"
+                placeholder="Password"
                 formControlName="password" />
             </div>
           </div>
           <!-- output password validation -->
           <div class="error-list" *ngIf="fc['password'].errors && isSubmited">
             <div *ngIf="fc['password'].errors['required']">
-              Should not be empty!!!
+              Should not be empty!
             </div>
           </div>
         </div>

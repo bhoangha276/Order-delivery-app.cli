@@ -19,7 +19,7 @@
   width: 25rem;
   padding: 2rem 4rem;
 
-  border: 1px solid #e72929;
+  border: 2px solid #e72929;
   border-radius: 1rem;
   background-color: #fff;
 }
@@ -44,9 +44,14 @@ form {
   border: none;
   border-bottom: 1px solid #000000;
 
-  font-size: 1rem;
+  font-size: 1.2rem;
 
   background-color: #fff;
+}
+
+.error-list {
+  font-size: 1rem;
+  color: #e72929;
 }
 
 .button {

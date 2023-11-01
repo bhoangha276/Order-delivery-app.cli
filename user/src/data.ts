@@ -102,3 +102,48 @@ export const sample_tags: Tag[] = [
   { name: 'Chiên rán', count: 1 },
   { name: 'Súp', count: 1 },
 ]
+
+export const sample_accounts: any[] = [
+  {
+    _id: '1',
+    email: 'ghrgt003@gmail.com',
+    password: 'ha123',
+    role: 'admin',
+    emailVerified: true,
+    phoneVerified: true,
+    status: true,
+    token: '',
+  },
+  {
+    _id: '2',
+    email: 'employee1@gmail.com',
+    password: 'ha123',
+    role: 'employee',
+    emailVerified: true,
+    phoneVerified: true,
+    status: true,
+    token: '',
+  },
+  {
+    _id: '3',
+    email: 'user1@gmail.com',
+    password: 'ha123',
+    role: 'user',
+    emailVerified: true,
+    phoneVerified: true,
+    status: true,
+    token: '',
+  },
+]
+
+export const sample_users: any[] = [
+  {
+    _id: '1',
+    name: 'hoang ha 1',
+    address: ['han oi', 'hai phong'],
+    gender: 'male',
+    birthday: '27/06/2001',
+    phone: '0383397465',
+    photo: 'link.jpg',
+  },
+]
