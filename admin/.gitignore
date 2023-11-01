@@ -1,45 +1,42 @@
-# Folders to ignore
-dist/
-node_modules/
-tests/e2e/reports/
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# local env files
-.env.local
-.env.*.local
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
 
-# dependencies
+# Node
 /node_modules
-package-lock.json
-yarn.lock
+npm-debug.log
+yarn-error.log
 
-# OS or Editor folders
-._*
-.cache
-.DS_Store
-.idea
+# IDEs and editors
+.idea/
 .project
-.settings
-.tmproj
-*.esproj
-*.sublime-project
+.classpath
+.c9/
+*.launch
+.settings/
 *.sublime-workspace
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-nbproject
-Thumbs.db
-/.vscode/
 
-# Numerous always-ignore extensions
-*.diff
-*.err
-*.log
-*.orig
-*.rej
-*.swo
-*.swp
-*.vi
-*.zip
-*~
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
+.DS_Store
+Thumbs.db
