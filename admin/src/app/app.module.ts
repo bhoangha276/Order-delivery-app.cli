@@ -16,7 +16,7 @@ import { HeaderComponent } from './components/header/header.component'
 import { SidebarComponent } from './components/sidebar/sidebar.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { TitleComponent } from './components/title/title.component'
-// import { TableFoodComponent } from './pages/table-food/table-food.component'
+import { TableFoodComponent } from './pages/table-food/table-food.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { TitleComponent } from './components/title/title.component'
     HeaderComponent,
     SidebarComponent,
     TitleComponent,
-    // TableFoodComponent,
+    TableFoodComponent,
   ],
   imports: [
     BrowserModule,
