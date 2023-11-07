@@ -8,11 +8,27 @@
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/home">
     <mat-icon>home</mat-icon> Home
   </a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
-    <mat-icon>dashboard</mat-icon> Dashboard
-  </a>
-  <a mat-list-item> <mat-icon>edit</mat-icon> Link 3 </a>
-  <a mat-list-item> <mat-icon>edit</mat-icon> Link 4 </a>
-  <a mat-list-item> <mat-icon>edit</mat-icon> Link 5 </a>
-  <a mat-list-item> <mat-icon>edit</mat-icon> Link 6 </a>
+  <mat-list-item routerLink="#">
+    <mat-icon>dashboard</mat-icon><span>Dashboard</span>
+  </mat-list-item>
+  <mat-expansion-panel [class.mat-elevation-z0]="true">
+    <mat-expansion-panel-header> Tables </mat-expansion-panel-header>
+    <mat-nav-list>
+      <a mat-list-item routerLink="tables/account">
+        <mat-icon>lock</mat-icon><span> Account </span>
+      </a>
+      <a mat-list-item routerLink="tables/user">
+        <mat-icon>person</mat-icon><span> User </span>
+      </a>
+      <a mat-list-item routerLink="tables/employee">
+        <mat-icon>supervisor_account</mat-icon><span> Employee </span>
+      </a>
+      <a mat-list-item routerLink="tables/food">
+        <mat-icon>fastfood</mat-icon><span> Food </span>
+      </a>
+      <a mat-list-item routerLink="tables/order">
+        <mat-icon>list_alt</mat-icon><span> Order </span>
+      </a>
+    </mat-nav-list>
+  </mat-expansion-panel>
 </mat-nav-list>
