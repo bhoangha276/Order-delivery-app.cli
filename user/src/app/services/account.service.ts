@@ -27,27 +27,29 @@ export class AccountService {
   }
 
   login(accountLogin: IAccountLogin): Observable<Account> {
-    return this.httpClient.post<Account>(ACCOUNT_LOGIN, accountLogin).pipe(
-      tap({
-        error: (errorResponse: any) => {
-          this.toastrService.error('Account not exist!', 'Login failed')
-        },
-      }),
-      map((response: any) => {
-        this.setAccountToLocalStorage(response.data)
+    return this.httpClient
+      .post<{ data: Account }>(ACCOUNT_LOGIN, accountLogin)
+      .pipe(
+        tap({
+          error: (errorResponse: any) => {
+            this.toastrService.error('Account not exist!', 'Login failed')
+          },
+        }),
+        map(response => {
+          this.setAccountToLocalStorage(response.data)
 
-        if (response.data !== null) {
-          this.toastrService.success(
-            `${response.data.email} - Login is successful!`,
-          )
+          if (response.data !== null) {
+            this.toastrService.success(
+              `${response.data.email} - Login is successful!`,
+            )
 
-          return response.data
-        }
+            return response.data
+          }
 
-        this.toastrService.error('Login failed!')
-        return new Account()
-      }),
-    )
+          this.toastrService.error('Login failed!')
+          return new Account()
+        }),
+      )
   }
 
   logout() {
