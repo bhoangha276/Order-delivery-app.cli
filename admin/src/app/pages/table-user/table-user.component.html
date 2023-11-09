@@ -5,23 +5,23 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Tags</th>
-        <th scope="col">ImageUrl</th>
-        <th scope="col">Origin</th>
-        <th scope="col">CookTime</th>
+        <th scope="col">Address</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Birthday</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Photo</th>
         <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let food of foods; let i = index">
+      <tr *ngFor="let user of users; let i = index">
         <th scope="row">{{ i }}</th>
-        <td>{{ food.name }}</td>
-        <td>{{ food.price }}</td>
-        <td>{{ food.tags }}</td>
-        <td>{{ food.imageUrl }}</td>
-        <td>{{ food.origins }}</td>
-        <td>{{ food.cookTime }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.address }}</td>
+        <td>{{ user.gender }}</td>
+        <td>{{ user.birthday }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.photo }}</td>
         <td class="function-icon">
           <a mat-list-item routerLink="">
             <mat-icon>remove_red_eye</mat-icon>

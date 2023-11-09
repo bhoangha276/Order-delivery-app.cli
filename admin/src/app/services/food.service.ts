@@ -3,11 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable, map } from 'rxjs'
 
 import { Food } from '../shared/model/Food'
-import {
-  FOODS_URL,
-  FOODS_BY_ID_URL,
-  FOODS_BY_FILTER_URL,
-} from '../shared/constants/urls'
+import { FOODS_URL, FOODS_BY_FILTER_URL } from '../shared/constants/urls'
 
 @Injectable({
   providedIn: 'root',
@@ -29,7 +25,7 @@ export class FoodService {
 
   getFoodById(foodId: string): Observable<Food> {
     return this.httpClient
-      .get<{ data: Food }>(`${FOODS_BY_ID_URL}/${foodId}`)
+      .get<{ data: Food }>(`${FOODS_URL}/${foodId}`)
       .pipe(map(response => response.data))
   }
 }
