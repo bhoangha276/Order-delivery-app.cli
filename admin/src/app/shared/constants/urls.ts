@@ -1,9 +1,18 @@
-const OPENSHIFT = 'https://order-delivery-app-srv.vercel.app/api/v1'
-const NETWORK = 'http://192.168.1.214:8000/api/v1'
-const LOCAL = 'http://127.0.0.1:8000/api/v1'
+const OPENSHIFT = 'https://order-delivery-app-srv.vercel.app'
+const NETWORK = 'http://192.168.1.214:8000'
+const LOCAL = 'http://127.0.0.1:8000'
 
 const BASE_URL = OPENSHIFT || NETWORK || LOCAL
+const API_V1 = 'api/v1'
 
-export const FOODS_URL = `${BASE_URL}/product`
-export const FOODS_BY_ID_URL = `${BASE_URL}/product`
-export const FOODS_BY_FILTER_URL = `${BASE_URL}/product/filter`
+export const USERS_URL = `${BASE_URL}/${API_V1}/user`
+export const USERS_BY_FILTER_URL = `${BASE_URL}/${API_V1}/user/filter`
+
+export const EMPLOYEES_URL = `${BASE_URL}/${API_V1}/employee`
+export const EMPLOYEES_BY_FILTER_URL = `${BASE_URL}/${API_V1}/employee/filter`
+
+export const FOODS_URL = `${BASE_URL}/${API_V1}/product`
+export const FOODS_BY_FILTER_URL = `${BASE_URL}/${API_V1}/product/filter`
+
+export const ORDERS_URL = `${BASE_URL}/${API_V1}/order`
+export const ORDERS_BY_FILTER_URL = `${BASE_URL}/${API_V1}/order/filter`

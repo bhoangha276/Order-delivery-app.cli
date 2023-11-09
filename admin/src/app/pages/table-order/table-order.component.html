@@ -4,24 +4,20 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Tags</th>
-        <th scope="col">ImageUrl</th>
-        <th scope="col">Origin</th>
-        <th scope="col">CookTime</th>
+        <th scope="col">Order Code</th>
+        <th scope="col">Address</th>
+        <th scope="col">Date time</th>
+        <th scope="col">Status</th>
         <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let food of foods; let i = index">
+      <tr *ngFor="let order of orders; let i = index">
         <th scope="row">{{ i }}</th>
-        <td>{{ food.name }}</td>
-        <td>{{ food.price }}</td>
-        <td>{{ food.tags }}</td>
-        <td>{{ food.imageUrl }}</td>
-        <td>{{ food.origins }}</td>
-        <td>{{ food.cookTime }}</td>
+        <td>{{ order.orderCode }}</td>
+        <td>{{ order.address }}</td>
+        <td>{{ order.dateTine }}</td>
+        <td>{{ order.status }}</td>
         <td class="function-icon">
           <a mat-list-item routerLink="">
             <mat-icon>remove_red_eye</mat-icon>
