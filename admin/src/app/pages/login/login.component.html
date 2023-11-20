@@ -1,1 +1,48 @@
-<p>login works!</p>
+<mat-toolbar>
+  <mat-toolbar-row fxLayout="row">
+    <span class="title-center">Login</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+    <div fxFlex fxLayout="column">
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" required />
+        <mat-error *ngIf="fc['email'].errors && isSubmited">
+          <span *ngIf="fc['email'].errors['required']">
+            Should not be empty!
+          </span>
+          <span *ngIf="fc['email'].errors['email']">
+            Should not be empty!
+          </span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password" required />
+        <mat-error *ngIf="fc['password'].errors && isSubmited">
+          <span *ngIf="fc['password'].errors['required']">
+            Should not be empty!
+          </span>
+          <span *ngIf="fc['password'].errors['password']">
+            Should not be empty!
+          </span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    (click)="handleSubmit()">
+    Login
+  </button>
+  <button mat-raised-button color="primary" mat-dialog-close>Close</button>
+</mat-dialog-actions>

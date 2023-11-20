@@ -5,6 +5,11 @@ const LOCAL = 'http://127.0.0.1:8000'
 const BASE_URL = OPENSHIFT || NETWORK || LOCAL
 const API_V1 = 'api/v1'
 
+export const ACCOUNTS_URL = `${BASE_URL}/${API_V1}/auth`
+export const ACCOUNTS_BY_FILTER_URL = `${BASE_URL}/${API_V1}/auth/filter`
+export const ACCOUNTS_SIGNUP_URL = `${BASE_URL}/${API_V1}/auth/signup`
+export const ACCOUNTS_LOGIN_URL = `${BASE_URL}/${API_V1}/auth/login`
+
 export const USERS_URL = `${BASE_URL}/${API_V1}/user`
 export const USERS_BY_FILTER_URL = `${BASE_URL}/${API_V1}/user/filter`
 
