@@ -21,7 +21,11 @@
             >
           </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item>
+            <button *ngIf="!isAuth" mat-menu-item (click)="loginAction()">
+              <mat-icon>power_settings_new</mat-icon>
+              Login
+            </button>
+            <button *ngIf="isAuth" mat-menu-item (click)="logoutAction()">
               <mat-icon>exit_to_app</mat-icon>
               Logout
             </button>
