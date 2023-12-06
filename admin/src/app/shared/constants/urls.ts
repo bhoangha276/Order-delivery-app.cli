@@ -1,8 +1,8 @@
-const OPENSHIFT = 'https://order-delivery-app-srv.vercel.app'
-const NETWORK = 'http://192.168.1.214:8000'
-const LOCAL = 'http://127.0.0.1:8000'
+const APP_OPENSHIFT = 'https://order-delivery-app-srv.vercel.app'
+const APP_NETWORK = 'http://192.168.1.214:8000'
+const APP_LOCAL = 'http://127.0.0.1:8000'
 
-const BASE_URL = OPENSHIFT || NETWORK || LOCAL
+const BASE_URL = APP_OPENSHIFT || APP_NETWORK || APP_LOCAL
 const API_V1 = 'api/v1'
 
 export const ACCOUNTS_URL = `${BASE_URL}/${API_V1}/auth`
@@ -21,8 +21,3 @@ export const FOODS_BY_FILTER_URL = `${BASE_URL}/${API_V1}/products/filter`
 
 export const ORDERS_URL = `${BASE_URL}/${API_V1}/orders`
 export const ORDERS_BY_FILTER_URL = `${BASE_URL}/${API_V1}/orders/filter`
-
-// API VNPAY
-const VNPAY_URL = 'http://127.0.0.1:8888'
-
-export const PAYMENT_URL = `${VNPAY_URL}/create_payment_url`
