@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit {
   }
 
   get isAuth() {
-    console.log(this.account.token)
+    // console.log(this.account.token)
     return this.account.token
   }
 }
