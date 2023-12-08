@@ -1,14 +1,20 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
+
 import { HomeComponent } from './pages/home/home.component'
+import { LoginComponent } from './pages/login/login.component'
 import { FoodComponent } from './pages/food/food.component'
 import { CartComponent } from './pages/cart/cart.component'
-import { LoginComponent } from './pages/login/login.component'
+import { OrderComponent } from './pages/order/order.component'
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
   {
     path: 'search/:searchTerm',
@@ -27,8 +33,8 @@ const routes: Routes = [
     component: CartComponent,
   },
   {
-    path: 'login',
-    component: LoginComponent,
+    path: 'order',
+    component: OrderComponent,
   },
 ]
 
