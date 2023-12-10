@@ -44,15 +44,23 @@ export class CartService {
     return this.cartSubject.asObservable()
   }
 
-  private setCartToLocalStorage(): void {
-    this.cart.totalPrice = this.cart.items.reduce(
+  totalPrice(): number {
+    return this.cart.items.reduce(
       (prevSum, currentItem) => prevSum + currentItem.price,
       0,
     )
-    this.cart.totalCount = this.cart.items.reduce(
+  }
+
+  totalCount(): number {
+    return this.cart.items.reduce(
       (prevSum, currentItem) => prevSum + currentItem.quantity,
       0,
     )
+  }
+
+  private setCartToLocalStorage(): void {
+    this.cart.totalPrice = this.totalPrice()
+    this.cart.totalCount = this.totalCount()
 
     const cartJson = JSON.stringify(this.cart)
     localStorage.setItem('Cart', cartJson)

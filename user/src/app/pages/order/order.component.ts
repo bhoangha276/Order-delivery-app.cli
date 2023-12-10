@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
+import { CartService } from 'src/app/services/cart.service'
 import { OrderService } from 'src/app/services/order.service'
 
 @Component({
@@ -16,6 +17,7 @@ export class OrderComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private orderService: OrderService,
+    private cartService: CartService,
     private activedRoute: ActivatedRoute,
     private router: Router,
   ) {}
@@ -45,9 +47,11 @@ export class OrderComponent implements OnInit {
       city: this.fc['city'].value,
     })
 
+    const totalPrice = this.cartService.totalPrice() * 1000
+
     this.orderService
       .checkOut({
-        amount: 122000,
+        amount: totalPrice,
         bankCode: '',
         language: 'vn',
       })
