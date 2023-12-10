@@ -5,11 +5,11 @@ import { CartService } from 'src/app/services/cart.service'
 import { OrderService } from 'src/app/services/order.service'
 
 @Component({
-  selector: 'app-order',
-  templateUrl: './order.component.html',
-  styleUrls: ['./order.component.css'],
+  selector: 'app-order-add',
+  templateUrl: './order-add.component.html',
+  styleUrls: ['./order-add.component.css'],
 })
-export class OrderComponent implements OnInit {
+export class OrderAddComponent implements OnInit {
   orderForm!: FormGroup
   isSubmited = false
   returnUrl = ''

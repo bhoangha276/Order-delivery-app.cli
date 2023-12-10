@@ -5,7 +5,7 @@ import { HomeComponent } from './pages/home/home.component'
 import { LoginComponent } from './pages/login/login.component'
 import { FoodComponent } from './pages/food/food.component'
 import { CartComponent } from './pages/cart/cart.component'
-import { OrderComponent } from './pages/order/order.component'
+import { OrderAddComponent } from './pages/order-add/order-add.component'
 
 const routes: Routes = [
   {
@@ -33,8 +33,8 @@ const routes: Routes = [
     component: CartComponent,
   },
   {
-    path: 'order',
-    component: OrderComponent,
+    path: 'order/create-new',
+    component: OrderAddComponent,
   },
 ]
 
