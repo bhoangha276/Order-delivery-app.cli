@@ -33,8 +33,13 @@ export class HomeComponent implements OnInit, OnDestroy {
         foodsObservable = this.api.getAll()
       }
 
-      this.foodsSubscription = foodsObservable.subscribe(serverFoods => {
-        this.foods = serverFoods
+      this.foodsSubscription = foodsObservable.subscribe({
+        next: serverFoods => {
+          this.foods = serverFoods
+        },
+        error: (error: any) => {
+          console.error('Get Foods error: ', error)
+        },
       })
     })
   }

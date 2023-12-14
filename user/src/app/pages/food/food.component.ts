@@ -22,11 +22,14 @@ export class FoodComponent implements OnInit, OnDestroy {
   ) {
     this.foodSubscription = activatedRoute.params.subscribe(params => {
       if (params['id']) {
-        this.foodSubscription = api
-          .getFoodById(params['id'])
-          .subscribe(serverFood => {
+        this.foodSubscription = api.getFoodById(params['id']).subscribe({
+          next: serverFood => {
             this.food = serverFood
-          })
+          },
+          error: (error: any) => {
+            console.error('Get Foods Detail error: ', error)
+          },
+        })
       }
     })
   }

@@ -51,8 +51,13 @@ export class LoginComponent implements OnInit, OnDestroy {
         email: this.fc['email'].value,
         password: this.fc['password'].value,
       })
-      .subscribe(() => {
-        this.router.navigateByUrl(this.returnUrl)
+      .subscribe({
+        next: () => {
+          this.router.navigateByUrl(this.returnUrl)
+        },
+        error: (error: any) => {
+          console.error('Login error: ', error)
+        },
       })
   }
 }

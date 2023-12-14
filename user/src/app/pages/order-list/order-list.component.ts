@@ -31,10 +31,13 @@ export class OrderListComponent implements OnInit, OnDestroy {
   }
 
   private fetchOrders() {
-    this.ordersSubscription = this.api
-      .getOrderByUserId()
-      .subscribe(serverOrders => {
+    this.ordersSubscription = this.api.getOrderByUserId().subscribe({
+      next: serverOrders => {
         this.orders = serverOrders
-      })
+      },
+      error: (error: any) => {
+        console.error('Get Order List error: ', error)
+      },
+    })
   }
 }

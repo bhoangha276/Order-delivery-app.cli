@@ -64,9 +64,14 @@ export class OrderAddComponent implements OnInit, OnDestroy {
 
     this.checkoutSubscription = this.orderService
       .checkOut(checkoutData)
-      .subscribe((result: string) => {
-        const stringUrl: string = result
-        window.location.href = stringUrl
+      .subscribe({
+        next: (result: string) => {
+          const stringUrl: string = result
+          window.location.href = stringUrl
+        },
+        error: (error: any) => {
+          console.error('Checkout error: ', error)
+        },
       })
   }
 }
