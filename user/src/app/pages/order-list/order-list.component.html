@@ -1,0 +1,24 @@
+<div class="container">
+  <app-title title="Order list" margin="0 0 0 2rem"></app-title>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>code</th>
+        <th>Adress</th>
+        <th>Date time</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let order of orders; let i = index">
+        <td>{{ i }}</td>
+        <td>{{ order.orderCode }}</td>
+        <td>{{ order.address }}</td>
+        <td>{{ order.createdAt }}</td>
+        <td>{{ order.status }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

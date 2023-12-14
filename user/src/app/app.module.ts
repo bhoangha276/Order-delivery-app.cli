@@ -18,7 +18,8 @@ import { SearchComponent } from './components/search/search.component'
 import { TagsComponent } from './components/tags/tags.component'
 import { TitleComponent } from './components/title/title.component'
 import { NotFoundComponent } from './components/not-found/not-found.component'
-import { OrderAddComponent } from './pages/order-add/order-add.component'
+import { OrderAddComponent } from './pages/order-add/order-add.component';
+import { OrderListComponent } from './pages/order-list/order-list.component'
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { OrderAddComponent } from './pages/order-add/order-add.component'
     NotFoundComponent,
     LoginComponent,
     OrderAddComponent,
+    OrderListComponent,
   ],
   imports: [
     BrowserModule,
