@@ -5,7 +5,10 @@ import { ICheckoutVNP } from '../shared/interfaces/ICheckout'
 import { Order } from '../shared/model/Order'
 import { HttpClient } from '@angular/common/http'
 import { ToastrService } from 'ngx-toastr'
-import { VNP_PAYMENT_URL } from '../shared/constants/urls'
+import {
+  ORDERS_URL,
+  VNP_PAYMENT_URL,
+} from '../shared/constants/urls'
 import { CheckoutVNP } from '../shared/model/Checkout'
 
 @Injectable({
@@ -23,5 +26,11 @@ export class OrderService {
     return this.httpClient
       .post<{ vnpUrl: string }>(VNP_PAYMENT_URL, checkoutVNP)
       .pipe(map(response => response.vnpUrl))
+  }
+
+  getOrderByUserId(orderId: string): Observable<Order[]> {
+    return this.httpClient
+      .get<{ data: Order[] }>(`${ORDERS_URL}/${orderId}`)
+      .pipe(map(response => response.data))
   }
 }

@@ -4,4 +4,10 @@ export class Order {
   email!: String
   address!: String
   city!: String
+
+  employeeID!: string
+  userID!: string
+  orderCode!: string
+  createdAt!: string
+  status!: Boolean
 }

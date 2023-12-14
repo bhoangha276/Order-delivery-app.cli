@@ -17,8 +17,9 @@ import { HeaderComponent } from './components/header/header.component'
 import { SearchComponent } from './components/search/search.component'
 import { TagsComponent } from './components/tags/tags.component'
 import { TitleComponent } from './components/title/title.component'
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import { OrderComponent } from './pages/order/order.component'
+import { NotFoundComponent } from './components/not-found/not-found.component'
+import { OrderAddComponent } from './pages/order-add/order-add.component';
+import { OrderListComponent } from './pages/order-list/order-list.component'
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { OrderComponent } from './pages/order/order.component'
     TitleComponent,
     NotFoundComponent,
     LoginComponent,
-    OrderComponent,
+    OrderAddComponent,
+    OrderListComponent,
   ],
   imports: [
     BrowserModule,
