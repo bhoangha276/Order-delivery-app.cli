@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, OnDestroy } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
+import { Subscription } from 'rxjs'
 import { CartService } from 'src/app/services/cart.service'
 import { OrderService } from 'src/app/services/order.service'
 
@@ -9,16 +10,17 @@ import { OrderService } from 'src/app/services/order.service'
   templateUrl: './order-add.component.html',
   styleUrls: ['./order-add.component.css'],
 })
-export class OrderAddComponent implements OnInit {
+export class OrderAddComponent implements OnInit, OnDestroy {
   orderForm!: FormGroup
   isSubmited = false
   returnUrl = ''
+  private checkoutSubscription: Subscription | undefined
 
   constructor(
     private formBuilder: FormBuilder,
     private orderService: OrderService,
     private cartService: CartService,
-    private activedRoute: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private router: Router,
   ) {}
 
@@ -29,6 +31,12 @@ export class OrderAddComponent implements OnInit {
       address: ['', [Validators.required]],
       city: ['', [Validators.required]],
     })
+  }
+
+  ngOnDestroy(): void {
+    if (this.checkoutSubscription) {
+      this.checkoutSubscription.unsubscribe()
+    }
   }
 
   get fc() {
@@ -48,20 +56,22 @@ export class OrderAddComponent implements OnInit {
     })
 
     const totalPrice = this.cartService.totalPrice() * 1000
+    let checkoutData = {
+      amount: totalPrice,
+      bankCode: '',
+      language: 'vn',
+    }
 
-    this.orderService
-      .checkOut({
-        amount: totalPrice,
-        bankCode: '',
-        language: 'vn',
+    this.checkoutSubscription = this.orderService
+      .checkOut(checkoutData)
+      .subscribe({
+        next: (result: string) => {
+          const stringUrl: string = result
+          window.location.href = stringUrl
+        },
+        error: (error: any) => {
+          console.error('Checkout error: ', error)
+        },
       })
-      .subscribe((result: string) => {
-        const stringUrl: string = result
-
-        window.location.href = stringUrl
-      }),
-      (error: any) => {
-        console.error(error)
-      }
   }
 }

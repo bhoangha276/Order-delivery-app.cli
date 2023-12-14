@@ -12,13 +12,12 @@
             </div>
           </div>
           <!-- output email validation -->
-          <div class="error-list" *ngIf="fc['email'].errors && isSubmited">
+          <div class="error-list" *ngIf="fc['email'].errors && isSubmitted">
             <div *ngIf="fc['email'].errors['required']">
               Should not be empty!
             </div>
             <div *ngIf="fc['email'].errors['email']">
               Email is not correct !
-              
             </div>
           </div>
         </div>
@@ -34,7 +33,7 @@
             </div>
           </div>
           <!-- output password validation -->
-          <div class="error-list" *ngIf="fc['password'].errors && isSubmited">
+          <div class="error-list" *ngIf="fc['password'].errors && isSubmitted">
             <div *ngIf="fc['password'].errors['required']">
               Should not be empty!
             </div>

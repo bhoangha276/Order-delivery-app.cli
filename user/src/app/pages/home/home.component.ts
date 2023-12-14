@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, OnDestroy } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
-import { Observable } from 'rxjs'
+import { Observable, Subscription } from 'rxjs'
 import { FoodService } from 'src/app/services/food.service'
 import { Food } from 'src/app/shared/model/Food'
 
@@ -9,29 +9,44 @@ import { Food } from 'src/app/shared/model/Food'
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   foods: Food[] = []
+  private foodsSubscription: Subscription | undefined
 
-  constructor(private api: FoodService, activatedRoute: ActivatedRoute) {
-    let foodsObservable: Observable<Food[]>
+  constructor(
+    private api: FoodService,
+    private activatedRoute: ActivatedRoute,
+  ) {}
 
-    activatedRoute.params.subscribe(params => {
+  ngOnInit(): void {
+    this.foodsSubscription = this.activatedRoute.params.subscribe(params => {
       let searchTerm = params['searchTerm']
       let searchTag = params['tag']
+
+      let foodsObservable: Observable<Food[]>
 
       if (searchTerm) {
         foodsObservable = this.api.getBySearchTerm(searchTerm)
       } else if (searchTag) {
         foodsObservable = this.api.getBySearchTag(searchTag)
       } else {
-        foodsObservable = api.getAll()
+        foodsObservable = this.api.getAll()
       }
 
-      foodsObservable.subscribe(serverFoods => {
-        this.foods = serverFoods
+      this.foodsSubscription = foodsObservable.subscribe({
+        next: serverFoods => {
+          this.foods = serverFoods
+        },
+        error: (error: any) => {
+          console.error('Get Foods error: ', error)
+        },
       })
     })
   }
 
-  ngOnInit(): void {}
+  ngOnDestroy(): void {
+    if (this.foodsSubscription) {
+      this.foodsSubscription.unsubscribe()
+    }
+  }
 }

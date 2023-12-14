@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, OnDestroy } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
-import { Observable } from 'rxjs'
+import { Observable, Subscription } from 'rxjs'
 import { OrderService } from '../../services/order.service'
 import { Order } from '../../shared/model/Order'
 
@@ -9,23 +9,35 @@ import { Order } from '../../shared/model/Order'
   templateUrl: './order-list.component.html',
   styleUrls: ['./order-list.component.css'],
 })
-export class OrderListComponent implements OnInit {
+export class OrderListComponent implements OnInit, OnDestroy {
   orders: Order[] = []
-  id: string = '64cbd4a097a3c6706459fdcb'
+  ordersSubscription: Subscription | undefined
 
-  constructor(private api: OrderService, activatedRoute: ActivatedRoute) {
-    let ordersObservable: Observable<Order[]>
+  constructor(
+    private api: OrderService,
+    private activatedRoute: ActivatedRoute,
+  ) {}
 
-    activatedRoute.params.subscribe(params => {
-      if (this.id) {
-        ordersObservable = this.api.getOrderByUserId(this.id)
-      }
-
-      ordersObservable.subscribe(serverOrders => {
-        this.orders = serverOrders
-      })
+  ngOnInit(): void {
+    this.ordersSubscription = this.activatedRoute.params.subscribe(() => {
+      this.fetchOrders()
     })
   }
 
-  ngOnInit(): void {}
+  ngOnDestroy() {
+    if (this.ordersSubscription) {
+      this.ordersSubscription.unsubscribe()
+    }
+  }
+
+  private fetchOrders() {
+    this.ordersSubscription = this.api.getOrderByUserId().subscribe({
+      next: serverOrders => {
+        this.orders = serverOrders
+      },
+      error: (error: any) => {
+        console.error('Get Order List error: ', error)
+      },
+    })
+  }
 }
