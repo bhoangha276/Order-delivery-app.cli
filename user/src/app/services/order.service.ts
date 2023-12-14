@@ -5,11 +5,10 @@ import { ICheckoutVNP } from '../shared/interfaces/ICheckout'
 import { Order } from '../shared/model/Order'
 import { HttpClient } from '@angular/common/http'
 import { ToastrService } from 'ngx-toastr'
-import {
-  ORDERS_URL,
-  VNP_PAYMENT_URL,
-} from '../shared/constants/urls'
+import { ORDERS_URL, VNP_PAYMENT_URL } from '../shared/constants/urls'
 import { CheckoutVNP } from '../shared/model/Checkout'
+
+const ACCOUNT_KEY = 'Account'
 
 @Injectable({
   providedIn: 'root',
@@ -28,9 +27,11 @@ export class OrderService {
       .pipe(map(response => response.vnpUrl))
   }
 
-  getOrderByUserId(orderId: string): Observable<Order[]> {
+  getOrderByUserId(): Observable<Order[]> {
+    let userStore = localStorage.getItem(ACCOUNT_KEY)
+    let userData = userStore && JSON.parse(userStore)
     return this.httpClient
-      .get<{ data: Order[] }>(`${ORDERS_URL}/${orderId}`)
+      .get<{ data: Order[] }>(`${ORDERS_URL}/${userData._id}`)
       .pipe(map(response => response.data))
   }
 }
