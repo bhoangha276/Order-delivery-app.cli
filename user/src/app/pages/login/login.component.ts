@@ -46,18 +46,18 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     if (this.loginForm.invalid) return
 
-    this.loginSubscription = this.accountService
-      .login({
-        email: this.fc['email'].value,
-        password: this.fc['password'].value,
-      })
-      .subscribe({
-        next: () => {
-          this.router.navigateByUrl(this.returnUrl)
-        },
-        error: (error: any) => {
-          console.error('Login error: ', error)
-        },
-      })
+    const loginData: { email: string; password: string } = {
+      email: this.fc['email'].value,
+      password: this.fc['password'].value,
+    }
+
+    this.loginSubscription = this.accountService.login(loginData).subscribe({
+      next: () => {
+        this.router.navigateByUrl(this.returnUrl)
+      },
+      error: (error: any) => {
+        console.error('Login error: ', error)
+      },
+    })
   }
 }
