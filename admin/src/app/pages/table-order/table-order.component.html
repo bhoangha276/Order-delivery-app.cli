@@ -16,8 +16,13 @@
         <th scope="row">{{ i }}</th>
         <td>{{ order.orderCode }}</td>
         <td>{{ order.address }}</td>
-        <td>{{ order.dateTine }}</td>
-        <td>{{ order.status }}</td>
+        <td>{{ order.dateTime }}</td>
+        <td *ngIf="order.status == 0" style="color: red">Processing</td>
+        <td *ngIf="order.status == 1" style="color: red">Confirmed</td>
+        <td *ngIf="order.status == 2" style="color: red">Cooking</td>
+        <td *ngIf="order.status == 3" style="color: red">Shipped</td>
+        <td *ngIf="order.status == 4" style="color: red">Delivered</td>
+        <td *ngIf="order.status == 5" style="color: green">Completed</td>
         <td class="function-icon">
           <a mat-list-item routerLink="">
             <mat-icon>remove_red_eye</mat-icon>
