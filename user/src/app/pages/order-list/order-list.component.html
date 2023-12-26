@@ -17,7 +17,12 @@
         <td>{{ order.orderCode }}</td>
         <td>{{ order.address }}</td>
         <td>{{ order.createdAt }}</td>
-        <td>{{ order.status }}</td>
+        <td *ngIf="order.status == 0" style="color: red">Processing</td>
+        <td *ngIf="order.status == 1" style="color: red">Confirmed</td>
+        <td *ngIf="order.status == 2" style="color: red">Cooking</td>
+        <td *ngIf="order.status == 3" style="color: red">Shipped</td>
+        <td *ngIf="order.status == 4" style="color: red">Delivered</td>
+        <td *ngIf="order.status == 5" style="color: green">Completed</td>
       </tr>
     </tbody>
   </table>

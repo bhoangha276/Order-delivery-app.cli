@@ -1,9 +1,25 @@
 <div class="container">
-  <div class="login-box">
+  <div class="signup-box">
     <div class="details">
-      <app-title title="LOG-IN ACCOUNT" fontSize="1.7rem"></app-title>
+      <app-title title="SIGN-UP ACCOUNT" fontSize="1.7rem"></app-title>
 
-      <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <form [formGroup]="signupForm" (ngSubmit)="submit()">
+        <div class="input-container">
+          <!-- input name -->
+          <div class="input-name">
+            <div>
+              <input type="name" placeholder="Name" formControlName="name" />
+            </div>
+          </div>
+          <!-- output name validation -->
+          <div class="error-list" *ngIf="fc['name'].errors && isSubmitted">
+            <div *ngIf="fc['name'].errors['required']">
+              Should not be empty!
+            </div>
+            <div *ngIf="fc['name'].errors['name']">Name is not correct !</div>
+          </div>
+        </div>
+
         <div class="input-container">
           <!-- input email -->
           <div class="input-email">
@@ -41,10 +57,10 @@
         </div>
 
         <div class="button">
-          <button type="submit">Login</button>
+          <button type="submit">Signup</button>
         </div>
       </form>
-      <a [routerLink]="returnToSignUp">Don't Have an Account? Sign Up</a>
+      <a [routerLink]="returnToLogin">Have an Account? Go to login</a>
     </div>
   </div>
 </div>

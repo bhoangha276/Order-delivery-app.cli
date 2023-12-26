@@ -4,6 +4,6 @@ export class Order {
   userID!: string
   orderCode!: string
   address!: string
-  dateTine!: string
-  status!: Boolean
+  dateTime!: string
+  status!: Number
 }

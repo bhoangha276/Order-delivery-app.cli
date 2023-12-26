@@ -13,6 +13,7 @@ export const FOODS_BY_TAG_URL = `${BASE_URL}/${API_V1}/products/filter`
 export const ORDERS_URL = `${BASE_URL}/${API_V1}/orders`
 
 export const ACCOUNT_LOGIN = `${BASE_URL}/${API_V1}/auth/login`
+export const ACCOUNT_SIGNUP = `${BASE_URL}/${API_V1}/auth/signup`
 
 // API VNPAY
 const VNP_OPENSHIFT = 'https://online-payment-vnpay.vercel.app'

@@ -5,8 +5,8 @@ import { BehaviorSubject, Observable, tap, map } from 'rxjs'
 import { ToastrService } from 'ngx-toastr'
 
 import { Account } from '../shared/model/Account'
-import { IAccountLogin } from '../shared/interfaces/IAccountLogin'
-import { ACCOUNT_LOGIN } from '../shared/constants/urls'
+import { IAccountSignup, IAccountLogin } from '../shared/interfaces/IAccount'
+import { ACCOUNT_SIGNUP, ACCOUNT_LOGIN } from '../shared/constants/urls'
 
 const ACCOUNT_KEY = 'Account'
 
@@ -26,13 +26,14 @@ export class AccountService {
     this.accountObservable = this.accountSubject.asObservable()
   }
 
-  login(accountLogin: IAccountLogin): Observable<Account> {
+  signUp(accountSignup: IAccountSignup): Observable<any> {
     return this.httpClient
-      .post<{ data: Account }>(ACCOUNT_LOGIN, accountLogin)
+      .post<{ data: any }>(ACCOUNT_SIGNUP, accountSignup)
       .pipe(
         tap({
           error: (errorResponse: any) => {
-            this.toastrService.error('Account not exist!', 'Login failed')
+            console.log(errorResponse)
+            this.toastrService.error('Sign up failed!', 'Error')
           },
         }),
         map(response => {
@@ -40,19 +41,47 @@ export class AccountService {
 
           if (response.data !== null) {
             this.toastrService.success(
-              `${response.data.email} - Login is successful!`,
+              'Sign up is successful!',
+              `${response.data.email || 'Success'}`,
             )
 
             return response.data
           }
 
-          this.toastrService.error('Login failed!')
+          this.toastrService.error('Sign up failed!', 'Error')
           return new Account()
         }),
       )
   }
 
-  logout() {
+  logIn(accountLogin: IAccountLogin): Observable<Account> {
+    return this.httpClient
+      .post<{ data: Account }>(ACCOUNT_LOGIN, accountLogin)
+      .pipe(
+        tap({
+          error: (errorResponse: any) => {
+            this.toastrService.error('Account not exist!', 'Error')
+          },
+        }),
+        map(response => {
+          this.setAccountToLocalStorage(response.data)
+
+          if (response.data !== null) {
+            this.toastrService.success(
+              'Log in is successful!',
+              `${response.data.email || 'Success'}`,
+            )
+
+            return response.data
+          }
+
+          this.toastrService.error('Log in failed!', 'Error')
+          return new Account()
+        }),
+      )
+  }
+
+  logOut() {
     this.accountSubject.next(new Account())
     localStorage.removeItem(ACCOUNT_KEY)
     window.location.reload()

@@ -7,7 +7,7 @@
   /* background-image: url(../../../assets/images/bg-login.jpg); */
 }
 
-.login-box {
+.signup-box {
   padding: 2rem;
 
   display: flex;
@@ -36,6 +36,7 @@ form {
   height: 3rem;
 }
 
+.input-name input,
 .input-email input,
 .input-password input {
   width: 100%;

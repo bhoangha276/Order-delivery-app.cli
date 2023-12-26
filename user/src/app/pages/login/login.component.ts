@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core'
+import { Component, OnInit, OnDestroy, Input } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
 import { Subscription } from 'rxjs'
@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   isSubmitted = false
   returnUrl = ''
   private loginSubscription: Subscription | undefined
+
+  @Input() returnToSignUp = '/signup'
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,12 +33,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl']
   }
 
-  ngOnDestroy(): void {
-    if (this.loginSubscription) {
-      this.loginSubscription.unsubscribe()
-    }
-  }
-
   get fc() {
     return this.loginForm.controls
   }
@@ -46,18 +42,24 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     if (this.loginForm.invalid) return
 
-    this.loginSubscription = this.accountService
-      .login({
-        email: this.fc['email'].value,
-        password: this.fc['password'].value,
-      })
-      .subscribe({
-        next: () => {
-          this.router.navigateByUrl(this.returnUrl)
-        },
-        error: (error: any) => {
-          console.error('Login error: ', error)
-        },
-      })
+    const loginData: { email: string; password: string } = {
+      email: this.fc['email'].value,
+      password: this.fc['password'].value,
+    }
+
+    this.loginSubscription = this.accountService.logIn(loginData).subscribe({
+      next: () => {
+        this.router.navigateByUrl(this.returnUrl)
+      },
+      error: (error: any) => {
+        console.error('Login error: ', error)
+      },
+    })
+  }
+
+  ngOnDestroy(): void {
+    if (this.loginSubscription) {
+      this.loginSubscription.unsubscribe()
+    }
   }
 }

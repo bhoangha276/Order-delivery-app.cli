@@ -26,8 +26,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  logout() {
-    this.accountService.logout()
+  logOutAction() {
+    this.accountService.logOut()
   }
 
   get isAuth() {

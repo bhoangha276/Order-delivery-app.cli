@@ -9,5 +9,5 @@ export class Order {
   userID!: string
   orderCode!: string
   createdAt!: string
-  status!: Boolean
+  status!: Number
 }
