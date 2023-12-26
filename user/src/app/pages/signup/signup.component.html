@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="signup-box">
+    <div class="details">
+      <app-title title="SIGN-UP ACCOUNT" fontSize="1.7rem"></app-title>
+
+      <form [formGroup]="signupForm" (ngSubmit)="submit()">
+        <div class="input-container">
+          <!-- input name -->
+          <div class="input-name">
+            <div>
+              <input type="name" placeholder="Name" formControlName="name" />
+            </div>
+          </div>
+          <!-- output name validation -->
+          <div class="error-list" *ngIf="fc['name'].errors && isSubmitted">
+            <div *ngIf="fc['name'].errors['required']">
+              Should not be empty!
+            </div>
+            <div *ngIf="fc['name'].errors['name']">Name is not correct !</div>
+          </div>
+        </div>
+
+        <div class="input-container">
+          <!-- input email -->
+          <div class="input-email">
+            <div>
+              <input type="email" placeholder="Email" formControlName="email" />
+            </div>
+          </div>
+          <!-- output email validation -->
+          <div class="error-list" *ngIf="fc['email'].errors && isSubmitted">
+            <div *ngIf="fc['email'].errors['required']">
+              Should not be empty!
+            </div>
+            <div *ngIf="fc['email'].errors['email']">
+              Email is not correct !
+            </div>
+          </div>
+        </div>
+
+        <div class="input-container">
+          <!-- input password -->
+          <div class="input-password">
+            <div>
+              <input
+                type="password"
+                placeholder="Password"
+                formControlName="password" />
+            </div>
+          </div>
+          <!-- output password validation -->
+          <div class="error-list" *ngIf="fc['password'].errors && isSubmitted">
+            <div *ngIf="fc['password'].errors['required']">
+              Should not be empty!
+            </div>
+          </div>
+        </div>
+
+        <div class="button">
+          <button type="submit">Signup</button>
+        </div>
+      </form>
+      <a [routerLink]="returnToLogin">Have an Account? Go to login</a>
+    </div>
+  </div>
+</div>

@@ -8,3 +8,4 @@ export class Account {
   status!: boolean
   token!: String
 }
+

@@ -19,7 +19,9 @@ import { TagsComponent } from './components/tags/tags.component'
 import { TitleComponent } from './components/title/title.component'
 import { NotFoundComponent } from './components/not-found/not-found.component'
 import { OrderAddComponent } from './pages/order-add/order-add.component';
-import { OrderListComponent } from './pages/order-list/order-list.component'
+import { OrderListComponent } from './pages/order-list/order-list.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { SuccessComponent } from './pages/success/success.component'
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { OrderListComponent } from './pages/order-list/order-list.component'
     LoginComponent,
     OrderAddComponent,
     OrderListComponent,
+    SignupComponent,
+    SuccessComponent,
   ],
   imports: [
     BrowserModule,
