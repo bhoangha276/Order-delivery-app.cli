@@ -1,7 +1,7 @@
 <div class="container">
   <div class="login-box">
     <div class="details">
-      <app-title title="ACCOUNT LOGIN"></app-title>
+      <app-title title="LOG-IN ACCOUNT" fontSize="1.7rem"></app-title>
 
       <form [formGroup]="loginForm" (ngSubmit)="submit()">
         <div class="input-container">
@@ -44,6 +44,7 @@
           <button type="submit">Login</button>
         </div>
       </form>
+      <a [routerLink]="returnToSignUp">Don't Have an Account? Sign Up</a>
     </div>
   </div>
 </div>
