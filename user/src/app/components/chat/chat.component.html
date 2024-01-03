@@ -1,0 +1,45 @@
+<div class="chatbox">
+  <div *ngIf="isChatOpen" class="chatbox__support">
+    <div class="chatbox__header">
+      <div class="chatbox__image--header">
+        <img
+          src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png"
+          alt="image" />
+      </div>
+      <div class="chatbox__content--header">
+        <h1 class="chatbox__heading--header">Chat support</h1>
+        <p class="chatbox__description--header">
+          Xin chào. Tôi có thể giúp gì cho bạn?
+        </p>
+      </div>
+    </div>
+    <div class="chatbox__messages">
+      <div
+        *ngFor="let message of chatMessages"
+        class="message messages__item"
+        [ngClass]="{
+          'messages__item--operator': message.name === 'user',
+          'messages__item--visitor': message.name === 'bot'
+        }">
+        {{ message.text }}
+      </div>
+    </div>
+    <div class="chatbox__footer">
+      <input
+        type="text"
+        [(ngModel)]="text"
+        (keyup.enter)="sendMessage()"
+        placeholder="Write your message..." />
+      <button
+        class="chatbox__send--footer send__button"
+        (click)="sendMessage()">
+        Send
+      </button>
+    </div>
+  </div>
+  <div class="chatbox__button">
+    <button (click)="toggleChat()">
+      <img src="../../../assets/icons/chatbot-icon.svg" />
+    </button>
+  </div>
+</div>
