@@ -10,7 +10,7 @@ type MessageType = { name: string; text: string }
   styleUrls: ['./chat.component.css'],
 })
 export class ChatComponent implements OnInit, OnDestroy {
-  isChatOpen = true
+  isChatOpen = false
   chatMessages: MessageType[] = []
   text = ''
   private chatbotSubscription?: Subscription
