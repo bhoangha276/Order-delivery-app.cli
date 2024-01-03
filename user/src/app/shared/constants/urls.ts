@@ -22,3 +22,13 @@ const VNP_LOCAL = 'http://127.0.0.1:8888'
 const VNP_URL = VNP_OPENSHIFT || VNP_NETWORK || VNP_LOCAL
 
 export const VNP_PAYMENT_URL = `${VNP_URL}/order/create_payment_url`
+
+// API Chatbot
+
+const CHATBOT_OPENSHIFT = ''
+const CHATBOT_NETWORK = ''
+const CHATBOT_LOCAL = 'http://127.0.0.1:8008'
+
+const CHATBOT_URL = CHATBOT_OPENSHIFT || CHATBOT_NETWORK || CHATBOT_LOCAL
+
+export const CHATBOT_QUESTION_URL = `${CHATBOT_URL}/predict`
