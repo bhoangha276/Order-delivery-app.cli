@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { Observable, map } from 'rxjs'
+import { Observable, map, tap } from 'rxjs'
 
 import { Order } from '../shared/model/Order'
 import { ORDERS_URL, ORDERS_BY_FILTER_URL } from '../shared/constants/urls'
@@ -27,5 +27,17 @@ export class OrderService {
     return this.httpClient
       .get<{ data: Order }>(`${ORDERS_URL}/${orderId}`)
       .pipe(map(response => response.data))
+  }
+
+  updateOrder(orderId: string, orderData: { status: number }) {
+    return this.httpClient
+      .put<{ data: Order }>(`${ORDERS_URL}/${orderId}`, orderData)
+      .pipe(
+        tap({
+          error: (errorResponse: any) => {
+            console.error(`Order service error!:`, errorResponse)
+          },
+        }),
+      )
   }
 }

@@ -5,5 +5,5 @@ export class Order {
   orderCode!: string
   address!: string
   dateTime!: string
-  status!: Number
+  status!: number
 }
