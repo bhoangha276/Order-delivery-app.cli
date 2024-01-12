@@ -6,8 +6,20 @@
 
 .function-icon {
   display: flex;
+  justify-content: space-between;
 
   & a {
     cursor: pointer;
   }
+}
+
+.btn-next-step {
+  cursor: pointer;
+
+  transition-delay: 0s;
+  transition-duration: 0.6s;
+}
+
+.btn-next-step:hover {
+  transform: scale(1.02);
 }

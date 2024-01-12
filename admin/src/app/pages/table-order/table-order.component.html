@@ -9,6 +9,7 @@
         <th scope="col">Date time</th>
         <th scope="col">Status</th>
         <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -17,22 +18,43 @@
         <td>{{ order.orderCode }}</td>
         <td>{{ order.address }}</td>
         <td>{{ order.dateTime }}</td>
-        <td *ngIf="order.status == 0" style="color: red">Processing</td>
-        <td *ngIf="order.status == 1" style="color: red">Confirmed</td>
-        <td *ngIf="order.status == 2" style="color: red">Cooking</td>
-        <td *ngIf="order.status == 3" style="color: red">Shipped</td>
-        <td *ngIf="order.status == 4" style="color: red">Delivered</td>
-        <td *ngIf="order.status == 5" style="color: green">Completed</td>
+        <td *ngIf="order.status === 0" style="color: red">
+          {{ orderStatus[order.status] }}
+        </td>
+        <td *ngIf="order.status === 1" style="color: orange">
+          {{ orderStatus[order.status] }}
+        </td>
+        <td *ngIf="order.status === 2" style="color: orange">
+          {{ orderStatus[order.status] }}
+        </td>
+        <td *ngIf="order.status === 3" style="color: orange">
+          {{ orderStatus[order.status] }}
+        </td>
+        <td *ngIf="order.status === 4" style="color: orange">
+          {{ orderStatus[order.status] }}
+        </td>
+        <td *ngIf="order.status === 5" style="color: orange">
+          {{ orderStatus[order.status] }}
+        </td>
+        <td *ngIf="order.status === 6" style="color: green">
+          {{ orderStatus[order.status] }}
+        </td>
         <td class="function-icon">
           <a mat-list-item routerLink="">
             <mat-icon>remove_red_eye</mat-icon>
           </a>
-          <a mat-list-item routerLink="">
-            <mat-icon>edit</mat-icon>
+          <a mat-list-item (click)="cancelStatusOrder(order._id)">
+            <mat-icon *ngIf="order.status !== 0">cancel</mat-icon>
           </a>
-          <a mat-list-item routerLink="">
-            <mat-icon>delete</mat-icon>
-          </a>
+        </td>
+        <td>
+          <button
+            *ngIf="order.status !== 6 && order.status > 0"
+            class="btn-next-step"
+            mat-list-item
+            (click)="nextStatusOrder(order._id, order.status)">
+            Next step
+          </button>
         </td>
       </tr>
     </tbody>

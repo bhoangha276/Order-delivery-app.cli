@@ -1,15 +1,15 @@
 export class Account {
-  _id!: String
-  email!: String
-  password!: String
-  role!: String
+  _id!: string
+  email!: string
+  password!: string
+  role!: string
   emailVerified!: boolean
   phoneVerified!: boolean
   status!: boolean
-  token!: String
+  token!: string
 }
 
 export class Login {
-  email!: String
-  password!: String
+  email!: string
+  password!: string
 }
