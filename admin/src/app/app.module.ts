@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core'
+import { FormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser'
 import { HttpClientModule } from '@angular/common/http'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -16,6 +17,8 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button'
 
+import { NgChartsModule } from 'ng2-charts'
+
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 
@@ -29,6 +32,7 @@ import { TableFoodComponent } from './pages/table-food/table-food.component'
 import { TableUserComponent } from './pages/table-user/table-user.component'
 import { TableEmployeeComponent } from './pages/table-employee/table-employee.component'
 import { TableOrderComponent } from './pages/table-order/table-order.component'
+import { RevenueStatisticsComponent } from './pages/revenue-statistics/revenue-statistics.component'
 
 @NgModule({
   declarations: [
@@ -42,9 +46,12 @@ import { TableOrderComponent } from './pages/table-order/table-order.component'
     TableUserComponent,
     TableEmployeeComponent,
     TableOrderComponent,
+    RevenueStatisticsComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
+    NgChartsModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,

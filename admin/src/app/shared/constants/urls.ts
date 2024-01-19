@@ -21,3 +21,6 @@ export const FOODS_BY_FILTER_URL = `${BASE_URL}/${API_V1}/products/filter`
 
 export const ORDERS_URL = `${BASE_URL}/${API_V1}/orders`
 export const ORDERS_BY_FILTER_URL = `${BASE_URL}/${API_V1}/orders/filter`
+
+export const INVOICES_URL = `${BASE_URL}/${API_V1}/invoices`
+export const INVOICES_BY_FILTER_URL = `${BASE_URL}/${API_V1}/invoices/filter`

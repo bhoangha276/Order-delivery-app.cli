@@ -1,0 +1,41 @@
+<div class="container-fluid page">
+  <app-title title="Revenue statistics"></app-title>
+  <div style="display: block">
+    <canvas
+      baseChart
+      class="chart"
+      [data]="chartData"
+      [options]="chartOptions"
+      [plugins]="chartPlugins"
+      [type]="chartType"
+      (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)">
+    </canvas>
+  </div>
+
+  <div class="input-box">
+    <form>
+      <label for="year">Year:</label>
+      <select id="year" name="year" [(ngModel)]="year">
+        <option value="2022">2023</option>
+        <option value="2023">2024</option>
+        <!-- Add more options as needed -->
+      </select>
+
+      <label for="includeCanceled">Include Month:</label>
+      <input
+        type="checkbox"
+        id="includeCanceled"
+        name="includeMonth"
+        [(ngModel)]="includeMonth" />
+    </form>
+
+    <button
+      mat-button
+      mat-raised-button
+      color="primary"
+      (click)="getRevenue(year, includeMonth)">
+      Update
+    </button>
+  </div>
+</div>
