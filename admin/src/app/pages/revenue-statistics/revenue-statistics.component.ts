@@ -24,7 +24,6 @@ export class RevenueStatisticsComponent implements OnInit, OnDestroy {
     scales: {
       x: {},
       y: {
-        // min: 10,
         beginAtZero: true,
       },
     },
@@ -44,28 +43,27 @@ export class RevenueStatisticsComponent implements OnInit, OnDestroy {
   public chartData: ChartData<'bar'> = {
     labels: ['Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11'],
     datasets: [
-      { data: [0, 0, 0, 0, 0, 0, 0], label: 'Doanh thu' },
-      { data: [0, 0, 0, 0, 0, 0, 0], label: 'Số đơn hàng' },
+      { data: Array(7).fill(0), label: 'Doanh thu' },
+      { data: Array(7).fill(0), label: 'Số đơn hàng' },
     ],
   }
-
-  constructor(
-    private api: InvoiceService,
-    private activatedRoute: ActivatedRoute,
-  ) {}
 
   revenues: Revenue[] = []
   revenuesSubscription: Subscription | undefined
 
-  year: string = '2023'
-  includeMonth: boolean = true
+  year = '2023'
+  includeMonth = true
 
   ngOnInit(): void {
     this.year = '2023'
     this.includeMonth = true
   }
 
-  ngOnDestroy() {}
+  ngOnDestroy() {
+    if (this.revenuesSubscription) {
+      this.revenuesSubscription.unsubscribe()
+    }
+  }
 
   // events
   public chartClicked({
@@ -98,21 +96,21 @@ export class RevenueStatisticsComponent implements OnInit, OnDestroy {
             return
           }
 
-          let labels: string[] = []
-          let datasets: { data: number[]; label: string }[] = []
+          const labels: string[] = []
+          const datasets: { data: number[]; label: string }[] = []
 
-          for (let i = 0; i < serverRevenues.length; i++) {
-            labels.push('Tháng ' + String(serverRevenues[i]._id.month))
+          for (const serverRevenue of serverRevenues) {
+            labels.push(`Tháng ${serverRevenue._id.month}`)
 
             if (!datasets[0]) {
               datasets[0] = { data: [], label: 'Doanh thu' }
             }
-            datasets[0].data.push(serverRevenues[i].totalCost)
+            datasets[0].data.push(serverRevenue.totalCost)
 
             if (!datasets[1]) {
               datasets[1] = { data: [], label: 'Số đơn hàng' }
             }
-            datasets[1].data.push(serverRevenues[i].quantity)
+            datasets[1].data.push(serverRevenue.quantity)
           }
 
           this.chartData.labels = labels
@@ -134,4 +132,9 @@ export class RevenueStatisticsComponent implements OnInit, OnDestroy {
         },
       })
   }
+
+  constructor(
+    private api: InvoiceService,
+    private activatedRoute: ActivatedRoute,
+  ) {}
 }
