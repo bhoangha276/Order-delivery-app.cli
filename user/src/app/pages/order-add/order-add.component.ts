@@ -14,7 +14,8 @@ export class OrderAddComponent implements OnInit, OnDestroy {
   orderForm!: FormGroup
   isSubmited = false
   returnUrl = ''
-  private checkoutSubscription: Subscription | undefined
+  private checkoutSubscription?: Subscription
+  private orderSubscription?: Subscription
 
   constructor(
     private formBuilder: FormBuilder,
@@ -48,13 +49,6 @@ export class OrderAddComponent implements OnInit, OnDestroy {
 
     if (this.orderForm.invalid) return
 
-    this.orderService.newOrder({
-      fullname: this.fc['fullname'].value,
-      email: this.fc['email'].value,
-      address: this.fc['address'].value,
-      city: this.fc['city'].value,
-    })
-
     const totalPrice = this.cartService.totalPrice() * 1000
     let checkoutData = {
       amount: totalPrice,
@@ -71,6 +65,21 @@ export class OrderAddComponent implements OnInit, OnDestroy {
         },
         error: (error: any) => {
           console.error('Checkout error: ', error)
+        },
+      })
+
+    this.orderSubscription = this.orderService
+      .newOrder({
+        userID: '',
+        address: this.fc['address'].value,
+        dateTime: new Date(),
+      })
+      .subscribe({
+        next: serverOrder => {
+          console.log(serverOrder)
+        },
+        error: (error: any) => {
+          console.error('Create order error: ', error)
         },
       })
   }
