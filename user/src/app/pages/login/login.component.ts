@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   loginForm!: FormGroup
   isSubmitted = false
   returnUrl = ''
-  private loginSubscription: Subscription | undefined
+  private loginSubscription?: Subscription
 
   @Input() returnToSignUp = '/signup'
 

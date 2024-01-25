@@ -14,7 +14,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   signupForm!: FormGroup
   isSubmitted = false
   returnUrl = ''
-  private signupSubscription: Subscription | undefined
+  private signupSubscription?: Subscription
 
   @Input() returnToLogin = '/login'
 
