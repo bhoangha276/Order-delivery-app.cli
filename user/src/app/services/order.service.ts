@@ -19,7 +19,15 @@ export class OrderService {
     private toastrService: ToastrService,
   ) {}
 
-  newOrder(order: IOrder) {}
+  newOrder(orderData: IOrder): Observable<string> {
+    let userStore = localStorage.getItem(ACCOUNT_KEY)
+    let userData = userStore && JSON.parse(userStore)
+    orderData.userID = userData._id
+
+    return this.httpClient
+      .post<{ id: string }>(ORDERS_URL, orderData)
+      .pipe(map(response => response.id))
+  }
 
   checkOut(checkoutVNP: ICheckoutVNP): Observable<string> {
     return this.httpClient

@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs'
 })
 export class CartComponent implements OnInit, OnDestroy {
   cart!: Cart
-  private cartSubscription: Subscription | undefined
+  private cartSubscription?: Subscription
 
   constructor(private cartService: CartService) {
     this.cartSubscription = this.cartService

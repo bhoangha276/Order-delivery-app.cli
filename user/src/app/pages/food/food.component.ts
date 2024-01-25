@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs'
 })
 export class FoodComponent implements OnInit, OnDestroy {
   food!: Food
-  private foodSubscription: Subscription | undefined
+  private foodSubscription?: Subscription
 
   constructor(
     activatedRoute: ActivatedRoute,

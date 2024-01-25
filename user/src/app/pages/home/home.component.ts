@@ -11,7 +11,7 @@ import { Food } from 'src/app/shared/model/Food'
 })
 export class HomeComponent implements OnInit, OnDestroy {
   foods: Food[] = []
-  private foodsSubscription: Subscription | undefined
+  private foodsSubscription?: Subscription
 
   constructor(
     private api: FoodService,

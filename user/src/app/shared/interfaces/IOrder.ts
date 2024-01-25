@@ -1,6 +1,6 @@
 export interface IOrder {
-  fullname: string
-  email: string
+  userID: string
+  // orderCode: number
   address: string
-  city: string
+  dateTime: Date
 }

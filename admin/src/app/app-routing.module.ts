@@ -7,6 +7,7 @@ import { TableUserComponent } from './pages/table-user/table-user.component'
 import { TableEmployeeComponent } from './pages/table-employee/table-employee.component'
 import { TableFoodComponent } from './pages/table-food/table-food.component'
 import { TableOrderComponent } from './pages/table-order/table-order.component'
+import { RevenueStatisticsComponent } from './pages/revenue-statistics/revenue-statistics.component'
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -34,6 +35,10 @@ const routes: Routes = [
   {
     path: 'tables/order',
     component: TableOrderComponent,
+  },
+  {
+    path: 'doashboard/revenue-statistics',
+    component: RevenueStatisticsComponent,
   },
 ]
 

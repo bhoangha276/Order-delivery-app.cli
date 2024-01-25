@@ -11,7 +11,7 @@ import { Order } from '../../shared/model/Order'
 })
 export class OrderListComponent implements OnInit, OnDestroy {
   orders: Order[] = []
-  ordersSubscription: Subscription | undefined
+  ordersSubscription?: Subscription
 
   constructor(
     private api: OrderService,
