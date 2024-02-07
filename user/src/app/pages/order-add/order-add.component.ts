@@ -38,6 +38,10 @@ export class OrderAddComponent implements OnInit, OnDestroy {
     if (this.checkoutSubscription) {
       this.checkoutSubscription.unsubscribe()
     }
+
+    if (this.orderSubscription) {
+      this.orderSubscription.unsubscribe()
+    }
   }
 
   get fc() {
@@ -56,6 +60,19 @@ export class OrderAddComponent implements OnInit, OnDestroy {
       language: 'vn',
     }
 
+    this.orderSubscription = this.orderService
+      .newOrder({
+        userID: '',
+        address: this.fc['address'].value,
+        dateTime: new Date(),
+      })
+      .subscribe({
+        next: serverOrder => {},
+        error: (error: any) => {
+          console.error('Create order error: ', error)
+        },
+      })
+
     this.checkoutSubscription = this.orderService
       .checkOut(checkoutData)
       .subscribe({
@@ -65,21 +82,6 @@ export class OrderAddComponent implements OnInit, OnDestroy {
         },
         error: (error: any) => {
           console.error('Checkout error: ', error)
-        },
-      })
-
-    this.orderSubscription = this.orderService
-      .newOrder({
-        userID: '',
-        address: this.fc['address'].value,
-        dateTime: new Date(),
-      })
-      .subscribe({
-        next: serverOrder => {
-          console.log(serverOrder)
-        },
-        error: (error: any) => {
-          console.error('Create order error: ', error)
         },
       })
   }

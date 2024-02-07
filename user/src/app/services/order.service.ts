@@ -24,9 +24,12 @@ export class OrderService {
     let userData = userStore && JSON.parse(userStore)
     orderData.userID = userData._id
 
-    return this.httpClient
-      .post<{ id: string }>(ORDERS_URL, orderData)
-      .pipe(map(response => response.id))
+    return this.httpClient.post<{ id: string }>(ORDERS_URL, orderData).pipe(
+      tap({
+        error: (errorResponse: any) => {},
+      }),
+      map(response => response.id),
+    )
   }
 
   checkOut(checkoutVNP: ICheckoutVNP): Observable<string> {
