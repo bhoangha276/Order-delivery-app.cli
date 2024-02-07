@@ -30,7 +30,7 @@ export class OrderAddComponent implements OnInit, OnDestroy {
       fullname: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       address: ['', [Validators.required]],
-      city: ['', [Validators.required]],
+      // city: ['', [Validators.required]],
     })
   }
 
