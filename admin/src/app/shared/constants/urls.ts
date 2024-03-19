@@ -1,4 +1,4 @@
-const APP_OPENSHIFT = 'https://order-delivery-app-srv.vercel.app'
+const APP_OPENSHIFT = 'https://hfoodhub-api.vercel.app'
 const APP_NETWORK = 'http://192.168.1.214:8000'
 const APP_LOCAL = 'http://127.0.0.1:8000'
 
